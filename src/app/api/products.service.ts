@@ -16,12 +16,12 @@ export class ProductsService {
   }
   public getProducts(): void {
     this._http
-      .get<Product[]>(`${this._endPoint}?sort=desc`)
+      .get<Product[]>(`${this._endPoint}/products/?sort=desc`)
       .pipe(tap((data: Product[]) => this.products.set(data)))
       .subscribe();
   }
   //getProductById
   public getProductById(id: number) {
-    return this._http.get<Product>(`${this._endPoint}/${id}`);
+    return this._http.get<Product>(`${this._endPoint}/products/${id}`);
   }
 }
