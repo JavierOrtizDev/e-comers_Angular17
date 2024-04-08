@@ -12,7 +12,7 @@ interface Rating {
 }
 export interface Product {
   id: number;
-  titel: string;
+  title: string;
   price: number;
   category: string;
   description: string;

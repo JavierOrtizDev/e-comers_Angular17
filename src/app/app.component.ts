@@ -11,7 +11,4 @@ import { HeaderComponent } from './layout/header/header.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
-  private readonly productSvc = inject(ProductsService);
-  products = this.productSvc.products;
-}
+export class AppComponent {}
