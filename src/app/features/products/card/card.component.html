@@ -1,7 +1,10 @@
 <article
   class="p-4 mt-2 mb-6 overflow-hidden rounded-b-lg shadow-none hover:shadow-xl"
 >
-  <a class="relative block h-48 overflow-hidden rounded">
+  <a
+    class="relative block h-48 overflow-hidden rounded"
+    [routerLink]="['/products', product().id]"
+  >
     <img
       class="w-full transtion duration-500 transform hover:scale-105"
       src="{{ product().image }}"
@@ -13,13 +16,16 @@
       {{ product().category }}
     </h3>
     <h2 class="py-4 text-lg font-medium text-gray-900 title-font">
-      <p>{{ product().title | slice : 0 : 30 }}</p>
+      <a [routerLink]="['/products', product().id]">{{
+        product().title | slice : 0 : 30
+      }}</a>
     </h2>
     <div class="flex items-center justify-between mt-1">
       <p class="text-2xl font-bold text-orange-500">
         {{ product().price | currency }}
       </p>
       <button
+        (click)="onAddToCart()"
         class="px-2 py-1 text-white bg-orange-500 rounded hover:bg-orange-700"
       >
         Add to card
