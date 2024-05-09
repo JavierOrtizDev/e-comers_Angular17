@@ -3,7 +3,11 @@
     <a routerLink="/" class="text-lg font-bold">ShirtStore</a>
     <section class="flex items-center">
       <a routerLink="/products" class="mr-6">Products</a>
-      <section class="relative">
+      <section
+        class="relative"
+        (mouseenter)="showCart.set(true)"
+        (mouseleave)="showCart.set(false)"
+      >
         <a routerLink="/checkout" class="flext items-center justify-between">
           <span>
             <svg
@@ -30,7 +34,9 @@
             >Count</span
           >
         </a>
+        @if (showCart()) {
         <section
+          [ngClass]="{ 'show-cart-animation': showCart() }"
           class="absolute right-0 z-30 w-48 p-2 text-white rounded-sm bg-slate-400"
         >
           <div class="flex items-center justify-between">
@@ -43,6 +49,7 @@
             <span class="not-italic font-bold">Total: 554</span>
           </div>
         </section>
+        }
       </section>
     </section>
   </section>
